@@ -44,12 +44,12 @@ const uint32_t UDP_HEADER_SIZE = 64;
 
 struct ipUdpMeta
 {
-	ap_uint<128> their_address;
+	ap_uint<32> their_address;
 	ap_uint<16> their_port;
 	ap_uint<16> my_port;
 	ap_uint<16>	length;
 	ipUdpMeta() {}
-	ipUdpMeta(ap_uint<128> addr, ap_uint<16> tport, ap_uint<16> mport, ap_uint<16> len)
+	ipUdpMeta(ap_uint<32> addr, ap_uint<16> tport, ap_uint<16> mport, ap_uint<16> len)
 		:their_address(addr), their_port(tport), my_port(mport), length(len) {}
 };
 
@@ -115,7 +115,6 @@ void udp(		hls::stream<ipMeta>&		s_axis_rx_meta,
 				hls::stream<axiWord>&	s_axis_tx_data,
 				hls::stream<ipMeta>&		m_axis_tx_meta,
 				hls::stream<axiWord>&	m_axis_tx_data,
-				ap_uint<128>		reg_ip_address,
 				ap_uint<16>			reg_listen_port);
 
 #endif

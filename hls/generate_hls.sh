@@ -1,15 +1,23 @@
 #!/bin/bash
 
-IP_CORES=(ip_handler mac_ip_encode arp_server_subnet icmp_server toe echo_server_application ethernet_frame_padding iperf_client udp ipv4 iperf_udp_client dhcp_client)
+# IP_CORES=(ip_handler mac_ip_encode arp_server_subnet icmp_server toe echo_server_application ethernet_frame_padding iperf_client udp ipv4 iperf_udp_client dhcp_client)
+IP_CORES=(ip_handler mac_ip_encode arp_server_subnet icmp_server ethernet_frame_padding udp ipv4 iperf_udp_client dhcp_client)
 
 
 if [[ $# > 0 ]]; then
-	if [ "$1" = "vcu709" ]; then
+	if [ "$1" = "vc709" ]; then
 		PART="xc7vx690tffg1761-2"
-	fi
-	if [ "$1" = "vcu118" ]; then
+	elif [ "$1" = "vcu118" ]; then
 		PART="xcvu9p-flga2104-2L-e"
+	elif [ "$1" = "kcu105" ]; then
+		PART="xcku040-ffva1156-2-e"
+	else
+		echo "Not supported PART: $1"
+		exit 1
 	fi
+else
+	echo "Usage: $0 <PART>"
+	exit 1
 fi
 
 HLS_DIR="$PWD"

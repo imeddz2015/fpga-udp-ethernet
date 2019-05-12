@@ -187,7 +187,6 @@ void udp(		hls::stream<ipMeta>&		s_axis_rx_meta,
 				hls::stream<axiWord>&	s_axis_tx_data,
 				hls::stream<ipMeta>&		m_axis_tx_meta,
 				hls::stream<axiWord>&	m_axis_tx_data,
-				ap_uint<128>		reg_ip_address,
 				ap_uint<16>			reg_listen_port)
 {
 #pragma HLS DATAFLOW
@@ -206,7 +205,6 @@ void udp(		hls::stream<ipMeta>&		s_axis_rx_meta,
 #pragma HLS DATA_PACK variable=m_axis_rx_meta
 #pragma HLS DATA_PACK variable=s_axis_tx_meta
 #pragma HLS DATA_PACK variable=m_axis_tx_meta
-#pragma HLS INTERFACE ap_stable register port=reg_ip_address
 #pragma HLS INTERFACE ap_stable register port=reg_listen_port
 
 

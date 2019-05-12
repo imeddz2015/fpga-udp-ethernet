@@ -33,7 +33,7 @@ void client(hls::stream<ipUdpMeta>&	txMetaData,
 			hls::stream<bool>&			stopSignal,
 			hls::stream<bool>&			doneSignalFifo,
 			ap_uint<1>		runExperiment,
-			ap_uint<128>	regTargetIpAddress,
+			ap_uint<32>		regTargetIpAddress,
 			ap_uint<8>		regPacketGap)
 {
 #pragma HLS PIPELINE II=1
@@ -278,7 +278,7 @@ void iperf_udp_client(	hls::stream<ipUdpMeta>&	rxMetaData,
 						hls::stream<ipUdpMeta>&	txMetaData,
 						hls::stream<axiWord>&	txData,
 						ap_uint<1>		runExperiment,
-						ap_uint<128>	regTargetIpAddress,
+						ap_uint<32>		regTargetIpAddress,
 						ap_uint<8>		regPacketGap)
 {
 	#pragma HLS DATAFLOW

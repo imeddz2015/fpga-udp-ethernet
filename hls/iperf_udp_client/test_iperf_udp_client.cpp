@@ -34,11 +34,7 @@ int main()
 	hls::stream<ipUdpMeta>	txMetaData("txMetaData");
 	hls::stream<axiWord>		txData("txData");
 	ap_uint<1> runExperiment;
-	//ap_uint<32> myIpAddress = 0x01010101;
-	ap_uint<128> targetIpAddress = 0x0A010101;
-	targetIpAddress(63, 32) = 0x0A010101;
-	targetIpAddress(95, 64) = 0x0A010101;
-	targetIpAddress(127, 96) = 0x0A010101;
+	ap_uint<32> targetIpAddress = 0x0A010101;
 
 	ap_uint<16> sessionID;
 	axiWord currWord;
